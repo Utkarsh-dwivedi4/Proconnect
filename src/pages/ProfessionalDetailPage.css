@@ -1,0 +1,115 @@
+.detail-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 40px 20px;
+  animation: fadeIn 1s ease-out;
+}
+
+.not-found {
+  text-align: center;
+  color: #fff;
+}
+
+.profile-card-large {
+  display: flex;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+}
+
+.profile-left-column {
+  flex-basis: 300px;
+  flex-shrink: 0;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding-right: 40px;
+}
+
+.profile-avatar-large {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid #4a90e2;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 28px;
+  color: #fff;
+  margin: 0;
+}
+
+.profile-specialty {
+  font-size: 16px;
+  color: #ccc;
+  margin-top: 5px;
+}
+
+.profile-rating-large {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.rating-number-large {
+    font-weight: bold;
+}
+
+.hire-me-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  background-image: linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb);
+  color: #111;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hire-me-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.profile-right-column {
+  flex-grow: 1;
+}
+
+.profile-right-column h2 {
+  font-size: 24px;
+  color: #fff;
+  border-bottom: 2px solid #4a90e2;
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+.profile-bio {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  background-color: rgba(74, 144, 226, 0.2);
+  color: #8dc6ff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}

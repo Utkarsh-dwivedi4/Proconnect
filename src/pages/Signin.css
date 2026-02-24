@@ -1,0 +1,129 @@
+/* Retained original styles and added new ones for tabs */
+.signin-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.signin-form-box {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  overflow: hidden; /* Crucial for tab corners */
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* --- NEW TAB STYLES --- */
+.auth-tabs {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.auth-tabs button {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  background: transparent;
+  color: #ccc;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.auth-tabs button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.auth-tabs button.active {
+  color: #fff;
+  border-bottom-color: #4a90e2;
+}
+/* --- END OF NEW TAB STYLES --- */
+
+.form-content {
+  padding: 30px;
+}
+
+.form-content h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.form-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.error-message {
+  color: #ff7675;
+  font-size: 14px;
+  text-align: center;
+  min-height: 1em;
+  margin: 0;
+}
+
+/* Reusing existing input styles */
+.form-input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+}
+
+/* Reusing existing button styles */
+.signin-submit-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  background-image: linear-gradient(to right, #4a90e2, #2c6dd5);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.signin-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.signin-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

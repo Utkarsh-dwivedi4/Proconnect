@@ -1,0 +1,99 @@
+.dashboard-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px 20px;
+  animation: fadeIn 1s ease-out;
+}
+
+.dashboard-welcome {
+  font-size: 42px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+
+.dashboard-subtitle {
+  font-size: 18px;
+  color: #ccc;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.dashboard-main-content {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+}
+
+.recent-favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.mini-profile-card {
+  text-decoration: none;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.mini-profile-card:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.mini-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #4a90e2;
+  margin-bottom: 10px;
+}
+
+.mini-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 5px 0;
+}
+
+.mini-specialty {
+  font-size: 12px;
+  color: #ccc;
+  margin: 0;
+}
+
+.no-favorites-dashboard {
+  text-align: center;
+  padding: 40px;
+  color: #ccc;
+}
+
+.find-talent-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4a90e2;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
