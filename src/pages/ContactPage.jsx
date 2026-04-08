@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { professionals } from '../data';
 import './ContactPage.css';
+import axios from "axios";
 
 const ContactPage = () => {
   const { id } = useParams();
@@ -9,36 +10,31 @@ const ContactPage = () => {
   const professional = professionals.find((p) => p.id === parseInt(id));
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (message.length < 10) {
       alert('Please provide a more detailed message.');
       return;
     }
+
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
-    
-    // Save message to localStorage for admin tracking
-    const newMessage = {
-      id: Date.now(), // Unique ID based on timestamp
-      senderName: currentUser ? currentUser.name : 'Anonymous',
-      senderEmail: currentUser ? currentUser.email : 'anonymous@example.com',
-      professionalId: professional.id,
-      professionalName: professional.name,
-      professionalImage: professional.image,
-      message: message,
-      timestamp: new Date().toISOString(),
-      date: new Date().toLocaleDateString(),
-      time: new Date().toLocaleTimeString()
-    };
-    
-    // Get existing messages or initialize empty array
-    const existingMessages = JSON.parse(localStorage.getItem('messages') || '[]');
-    existingMessages.push(newMessage);
-    localStorage.setItem('messages', JSON.stringify(existingMessages));
-    // In a real app, this would send the message to a server.
-    // For now, we'll simulate it.
-    alert(`Message sent to ${professional.name} successfully!\n\nYour message: "${message}"`);
-    navigate(`/professional/${id}`); // Redirect back to the profile page
+
+    try {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/messages`, {
+        user_email: currentUser?.email || "anonymous@example.com",
+        professional_id: professional.id,
+        message: message
+      });
+
+      alert(`Message sent to ${professional.name} and saved in database!`);
+
+      navigate(`/professional/${id}`);
+
+    } catch (error) {
+      console.error(error);
+      alert("Error sending message");
+    }
   };
 
   if (!professional) {
@@ -60,10 +56,12 @@ const ContactPage = () => {
             <h1 className="contact-name">{professional.name}</h1>
           </div>
         </div>
+
         <form onSubmit={handleSubmit} className="contact-form">
           <label htmlFor="message" className="message-label">
             Your Message
           </label>
+
           <textarea
             id="message"
             className="message-textarea"
@@ -73,6 +71,7 @@ const ContactPage = () => {
             onChange={(e) => setMessage(e.target.value)}
             required
           ></textarea>
+
           <button type="submit" className="send-message-btn">
             Send Message
           </button>
